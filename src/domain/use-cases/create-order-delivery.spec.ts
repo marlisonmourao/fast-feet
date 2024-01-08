@@ -2,7 +2,6 @@ import { CreateOrderDeliveryUseCase } from './create-order-delivery'
 import { OrdersRepository } from '../repositories/orders-repository'
 import { Order } from '../entities/order'
 import { UniqueEntityID } from '../../core/entities/unique-entity-id'
-
 const fakeOrdersRepositoty: OrdersRepository = {
   create: async (order: Order): Promise<void> => {},
 }
