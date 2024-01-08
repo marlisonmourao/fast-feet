@@ -2,6 +2,7 @@ import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { InMemoryOrdersRepository } from '@/test/repositories/in-memory-orders-repository'
 import { SearchByAddressUseCase } from './search-by-address'
 import { Order } from '../../entrerprise/entities/order'
+import { makeOrder } from '@/test/factores/make-order'
 
 let inMemoryOrdersRepository: InMemoryOrdersRepository
 let sut: SearchByAddressUseCase
@@ -13,9 +14,7 @@ describe('Search by delivery address', () => {
   })
 
   it('should be able to search address', async () => {
-    const newOrder = Order.create({
-      authorId: new UniqueEntityID('1'),
-      recipientId: new UniqueEntityID('4'),
+    const newOrder = makeOrder({
       deliveryAddress: 'Bairro Jardim das flores',
     })
 
