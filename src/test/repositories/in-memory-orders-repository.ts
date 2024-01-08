@@ -4,7 +4,7 @@ import { Order } from '@/domain/delivery/entrerprise/entities/order'
 export class InMemoryOrdersRepository implements OrdersRepository {
   public items: Order[] = []
 
-  async create(order: Order): Promise<void> {
+  async create(order: Order) {
     await this.items.push(order)
   }
 
@@ -19,5 +19,27 @@ export class InMemoryOrdersRepository implements OrdersRepository {
     }
 
     return orders
+  }
+
+  async findById(id: string) {
+    const order = await this.items.find((item) => item.id.toString() === id)
+
+    if (!order) {
+      return null
+    }
+
+    return order
+  }
+
+  async delete(order: Order) {
+    const itemIndex = await this.items.findIndex((item) => item.id === order.id)
+
+    this.items.splice(itemIndex, 1)
+  }
+
+  async save(order: Order) {
+    const itemIndex = await this.items.findIndex((item) => item.id === order.id)
+
+    this.items[itemIndex] = order
   }
 }

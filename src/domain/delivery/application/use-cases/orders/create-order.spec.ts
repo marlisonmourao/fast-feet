@@ -5,13 +5,13 @@ import { InMemoryOrdersRepository } from '@/test/repositories/in-memory-orders-r
 let inMemoryOrdersRepository: InMemoryOrdersRepository
 let sut: CreateOrderUseCase
 
-describe('Create an question', () => {
+describe('Create an order', () => {
   beforeAll(() => {
     inMemoryOrdersRepository = new InMemoryOrdersRepository()
     sut = new CreateOrderUseCase(inMemoryOrdersRepository)
   })
 
-  it('should be able to create an order', async () => {
+  it('should be able to create a order', async () => {
     const response = await sut.execute({
       deliveryAddress: 'Rua teste',
       authorId: new UniqueEntityID('1').toString(),

@@ -1,4 +1,4 @@
-import { OrdersRepository } from '../repositories/orders-repository'
+import { OrdersRepository } from '../../repositories/orders-repository'
 import { Order } from '@/domain/delivery/entrerprise/entities/order'
 
 interface SearchByAddressUseCaseRequest {

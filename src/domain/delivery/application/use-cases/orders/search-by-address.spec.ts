@@ -1,7 +1,5 @@
-import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { InMemoryOrdersRepository } from '@/test/repositories/in-memory-orders-repository'
 import { SearchByAddressUseCase } from './search-by-address'
-import { Order } from '../../entrerprise/entities/order'
 import { makeOrder } from '@/test/factores/make-order'
 
 let inMemoryOrdersRepository: InMemoryOrdersRepository

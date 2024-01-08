@@ -1,5 +1,5 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
-import { OrdersRepository } from '../repositories/orders-repository'
+import { OrdersRepository } from '../../repositories/orders-repository'
 import { Order } from '@/domain/delivery/entrerprise/entities/order'
 
 interface CreateOrderUseCaseRequest {
