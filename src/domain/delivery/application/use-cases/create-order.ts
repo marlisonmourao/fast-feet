@@ -1,8 +1,8 @@
-import { UniqueEntityID } from '../../core/entities/unique-entity-id'
-import { Order } from '../entities/order'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { OrdersRepository } from '../repositories/orders-repository'
+import { Order } from '@/domain/delivery/entrerprise/entities/order'
 
-interface CreateOrderDeliveryUseCaseRequest {
+interface CreateOrderUseCaseRequest {
   authorId: string
   recipientId: string
   deliveryManId?: string
@@ -11,7 +11,7 @@ interface CreateOrderDeliveryUseCaseRequest {
   deliveryDate?: Date
 }
 
-export class CreateOrderDeliveryUseCase {
+export class CreateOrderUseCase {
   constructor(private orderRepository: OrdersRepository) {}
 
   async execute({
@@ -21,7 +21,7 @@ export class CreateOrderDeliveryUseCase {
     deliveryAddress,
     dateOfWithdrawal,
     deliveryDate,
-  }: CreateOrderDeliveryUseCaseRequest) {
+  }: CreateOrderUseCaseRequest) {
     const order = Order.create({
       recipientId: new UniqueEntityID(recipientId),
       deliveryManId: new UniqueEntityID(deliveryManId),
@@ -33,6 +33,8 @@ export class CreateOrderDeliveryUseCase {
 
     await this.orderRepository.create(order)
 
-    return order
+    return {
+      order,
+    }
   }
 }
