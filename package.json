@@ -15,13 +15,16 @@
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
     "@rocketseat/eslint-config": "^2.1.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.10.7",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dayjs": "^1.11.10",
     "eslint-plugin-vitest-globals": "^1.4.0",
+    "install": "^0.13.0",
     "vite": "^5.0.11",
     "vite-tsconfig-paths": "^4.2.3",
     "vitest": "^1.1.3"

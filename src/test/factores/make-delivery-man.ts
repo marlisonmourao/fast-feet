@@ -12,8 +12,9 @@ export function makeDeliveryMan(
   const newDeliveryMan = DeliveryMan.create(
     {
       name: faker.person.fullName(),
-      city: faker.location.city(),
-      phone: faker.phone.number(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+      cpf: faker.phone.imei(),
       ...override,
     },
     id,

@@ -20,6 +20,18 @@ export class InMemoryDeliveryManRepository implements DeliveryManRepository {
     return deliveryman
   }
 
+  async findByCpf(cpf: string) {
+    const deliveryman = await this.items.find(
+      (item) => item.cpf.toString() === cpf,
+    )
+
+    if (!deliveryman) {
+      return null
+    }
+
+    return deliveryman
+  }
+
   async delete(deliveryman: DeliveryMan) {
     const itemIndex = await this.items.findIndex(
       (item) => item.id === deliveryman.id,
